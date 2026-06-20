@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\makcu\OneDrive\Рабочий стол\skinchanger-main\launcher\build\CMakeFiles\4fefb7b3a68aa4c26397362b804b50ef\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7A283EB9-0FC5-348E-B969-E04B6965E284}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

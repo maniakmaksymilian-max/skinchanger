@@ -1,0 +1,3 @@
+C:/Users/makcu/OneDrive/Рабочий стол/skinchanger-main/launcher/build/CMakeFiles/launcher.dir
+C:/Users/makcu/OneDrive/Рабочий стол/skinchanger-main/launcher/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/makcu/OneDrive/Рабочий стол/skinchanger-main/launcher/build/CMakeFiles/ZERO_CHECK.dir
