@@ -1,8 +1,9 @@
 #include <iostream>
 #include <windows.h>
 #include "app/application.h"
+#include "../injection/injection_engine.h"
 
-int main() {
+int main(int argc, char** argv) {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
@@ -14,6 +15,14 @@ int main() {
     std::cout << "  ╚═══════════════════════════════════════════╝" << std::endl;
     std::cout << "\n";
 
+    bool injectOnly = false;
+    if (argc >= 2) {
+        std::string arg = argv[1];
+        if (arg == "--inject-only" || arg == "-i") {
+            injectOnly = true;
+        }
+    }
+
     // Create and initialize application
     Application app;
     
@@ -22,6 +31,24 @@ int main() {
         std::cout << "\nPress any key to exit..." << std::endl;
         getchar();
         return 1;
+    }
+
+    if (injectOnly) {
+        std::cout << "\n[*] Inject-only mode: performing injection and exiting..." << std::endl;
+        // InjectionEngine should have been initialized as part of Application::Initialize (via SkinChangerManager)
+        bool injected = InjectionEngine::Inject();
+        if (!injected) {
+            std::cerr << "[Main] Injection failed" << std::endl;
+            app.Shutdown();
+            return 2;
+        }
+        std::cout << "[Main] Injection succeeded" << std::endl;
+
+        // Give a short moment for injected module to initialize
+        Sleep(500);
+
+        app.Shutdown();
+        return 0;
     }
 
     std::cout << "\n[*] Starting application..." << std::endl;
