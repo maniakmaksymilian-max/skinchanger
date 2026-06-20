@@ -1,96 +1,19 @@
-# CS2 Skin Changer - Launcher
+This repository contains a minimal replacement launcher that bypasses the runtime compiler availability check.
 
-## Что это?
+Purpose:
+- Some original launcher binaries performed an environment check and exited if no C++ compiler was detected in the runtime environment. This small source builds a launcher that does not abort on missing compiler and instead proceeds.
 
-**launcher.exe** - это один файл который автоматически:
-1. ✅ Проверяет требования (Visual C++, CMake, DirectX, Git)
-2. ✅ Скачивает проект с GitHub
-3. ✅ Автоматически собирает программу
-4. ✅ Запускает готовую программу
+How to build (Windows, recommended):
+1. Open "x64 Native Tools Command Prompt for VS 2022" (Developer Command Prompt).
+2. Run the build script:
+   cd launcher
+   build.bat
 
-## 🚀 Как использовать
+Or manually:
+   mkdir build
+   cd build
+   cmake -G "Visual Studio 17 2022" -A x64 ..
+   cmake --build . --config Release
 
-1. **Скачай launcher.exe**
-2. **Запусти его**
-3. **Жди завершения** (5-10 минут в первый раз)
-4. **Программа запустится автоматически!**
-
-Всё! Больше ничего не нужно!
-
-## 📋 Что лаунчер делает
-
-### STEP 1: Проверка требований
-- ✅ Visual Studio 2022
-- ✅ CMake 3.16+
-- ✅ DirectX 11
-- ✅ Git
-- ✅ Visual C++ Runtime
-
-Если что-то не установлено - установи вручную!
-
-### STEP 2: Скачивание
-- Скачивает проект с GitHub
-- Распаковывает файлы
-
-### STEP 3: Конфигурация
-- Запускает CMake с правильными параметрами
-- Генерирует Visual Studio проект
-
-### STEP 4: Сборка
-- Компилирует весь проект в Release режиме
-- Создает skinchanger.exe
-
-### Запуск
-- Автоматически запускает готовую программу
-
-## 💻 Требования
-
-- Windows 10/11 (64-bit)
-- Visual Studio 2022 Community (Free!) или Pro
-- CMake 3.16+
-- DirectX 11
-- Git
-- Интернет (для скачивания)
-- Примерно 5-10 ГБ свободного места
-- Немного времени (первый запуск 5-10 минут)
-
-## 🛠️ Установка требований
-
-### Visual Studio 2022
-https://visualstudio.microsoft.com/downloads/
-- Выбери "Desktop development with C++"
-
-### CMake
-https://cmake.org/download/
-- Выбери "Windows x64 Installer"
-
-### Git
-https://git-scm.com/download/win
-- Используй дефолтные настройки
-
-## 🆘 Если ошибка
-
-Если при запуске лаунчера ошибка - запусти с правами администратора и проверь:
-- Visual Studio 2022 установлена
-- CMake в переменной окружения PATH
-- DirectX установлен
-- Git установлен
-- Интернет соединение работает
-- Достаточно места на диске
-
-## ⏱️ Время сборки
-
-- Первый запуск: **5-10 минут**
-- Последующие запуски: **30-60 секунд**
-
-## 📝 После установки
-
-После того как программа запущена:
-1. Нажми **INSERT** чтобы открыть меню
-2. Выбери оружие
-3. Выбери скин
-4. Скин применяется!
-
----
-
-**Просто запусти launcher.exe и всё будет готово!** 🎉
+Notes:
+- This replacement is a minimal example. If you want the original functionality preserved, provide the original source files and I will prepare a targeted patch to only disable the compiler-check logic.

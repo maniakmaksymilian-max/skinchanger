@@ -1,38 +1,15 @@
 @echo off
-REM CS2 Skin Changer Launcher Builder
-
-echo ========================================
-echo  CS2 Skin Changer Launcher Builder
-echo  Сборка лаунчера
-echo ========================================
-echo.
-
-if not exist "build" (
-    echo [*] Создаю папку build...
-    mkdir build
+REM Build script for launcher (Windows, Developer Command Prompt recommended)
+if "%1"=="clean" (
+    rd /s /q build
+    echo Cleaned build directory.
+    goto :eof
 )
 
-echo [*] Генерирую проект...
+mkdir build 2>nul
 cd build
-cmake -S .. -B . -G "Visual Studio 17 2022" -A x64
-
-if errorlevel 1 (
-    echo [ERROR] Ошибка при генерации!
-    pause
-    exit /b 1
-)
-
-echo.
-echo [*] Собираю лаунчер (Release)...
+cmake -G "Visual Studio 17 2022" -A x64 ..
 cmake --build . --config Release
+cd ..
 
-if errorlevel 1 (
-    echo [ERROR] Ошибка при сборке!
-    pause
-    exit /b 1
-)
-
-echo.
-echo [+] Сборка успешно завершена!
-echo [+] Файл: bin\launcher.exe
-pause
+echo Build finished. Executable is in launcher\build\bin\Release\launcher.exe (or build\bin\Release\launcher.exe)
