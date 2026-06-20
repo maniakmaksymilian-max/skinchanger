@@ -28,5 +28,11 @@ int main() {
     std::cout << "[STEP 4/5] Done.\n";
 
     std::cout << "\n[+] launcher started successfully.\n";
+
+    // Keep console open when launched by double-clicking
+    std::cout << "\nPress Enter to exit...";
+    std::cin.clear();
+    std::cin.get();
+
     return 0;
 }
